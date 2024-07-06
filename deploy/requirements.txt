@@ -1,0 +1,7 @@
+pycuda
+onnx
+onnxsim
+onnxruntime
+onnx_graphsurgeon
+tensorrt>=8.6.1
+polygraphy
