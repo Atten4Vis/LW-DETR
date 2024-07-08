@@ -40,9 +40,15 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
     for data_iter_step, (samples, targets) in enumerate(metric_logger.log_every(data_loader, print_freq, header)):
         it = start_steps + data_iter_step
         if 'dp' in schedules:
-            model.module.update_drop_path(schedules['dp'][it], vit_encoder_num_layers)
+            if args.distributed:
+                model.module.update_drop_path(schedules['dp'][it], vit_encoder_num_layers)
+            else:
+                model.update_drop_path(schedules['dp'][it], vit_encoder_num_layers)
         if 'do' in schedules:
-            model.module.update_dropout(schedules['do'][it])
+            if args.distributed:
+                model.module.update_dropout(schedules['do'][it])
+            else:
+                model.update_dropout(schedules['do'][it])
         
         samples = samples.to(device)
         targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
