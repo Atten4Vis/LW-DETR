@@ -8,6 +8,10 @@ This is the *official* repository with PyTorch implementation of [LW-DETR: A Tra
 - Release a series of real-time detection models in LW-DETR, including LW-DETR-tiny, LW-DETR-small, LW-DETR-medium, LW-DETR-large and LW-DETR-xlarge, named <LWDETR_*size_60e_coco.pth>. Please refer to [Hugging Face](https://huggingface.co/xbsu/LW-DETR/tree/main/pretrain_weights) to download.
 - Release a series of pretrained models in LW-DETR. Please refer to [Hugging Face](https://huggingface.co/xbsu/LW-DETR/tree/main/pretrain_weights) to download.
 
+## News
+[2024/7/15] We present [OVLW-DETR](https://arxiv.org/pdf/2407.10655), an efficient open-vocabulary detector with outstanding performance and low latency, built upon LW-DETR. It surpasses existing real-time open-vocabulary detectors on the standard Zero-Shot LVIS benchmark. 
+The source code and pre-trained model is comming soon, please stay tuned!
+
 ## Catalogue
 
 - [1. Introduction](#1)
