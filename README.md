@@ -17,12 +17,13 @@ The source code and pre-trained model is comming soon, please stay tuned!
 - [1. Introduction](#1)
 - [2. Installation](#2)
 - [3. Preparation](#3)
-- [4. Train](#4)
-- [5. Eval](#5)
-- [6. Deploy](#6)
-- [7. Main Results](#7)
-- [8. References](#8)
-- [9. Citation](#9)
+- [4. Inference Demo with Pre-trained Model](#4)
+- [5. Train](#5)
+- [6. Eval](#6)
+- [7. Deploy](#7)
+- [8. Main Results](#8)
+- [9. References](#9)
+- [10. Citation](#10)
 
 <a name='1'></a>
 
@@ -149,7 +150,22 @@ We finetune the pretrained model on COCO. If you want to reimplement our repo, p
 
 <a name='4'></a>
 
-## 4. Train
+## 4. Inference Demo with Pre-trained Model
+We’ve provided demo for visualizing the customized input images using pretrained weights.
+
+For visualizing demos:
+
+1. Pick a model and its config from projects, for example, LWDETR_small_60e_coco.
+2. Download the pretrained weights from the link on the page above.
+3. Using the provided demo.py to demo the input images. Run it as:
+
+```sh
+  sh demo/lwdetr_small_coco_infer.sh output/LWDETR_small_60e_coco.pth demo/000000496954.jpg output
+  ```
+
+<a name='5'></a>
+
+## 5. Train
 You can directly run `scripts/lwdetr_<model_size>_coco_train.sh ` file for the training process on coco dataset.
 
 <details>
@@ -197,9 +213,9 @@ You can directly run `scripts/lwdetr_<model_size>_coco_train.sh ` file for the t
 
 </details>
 
-<a name='5'></a>
+<a name='6'></a>
 
-## 5. Eval
+## 6. Eval
 You can directly run `scripts/lwdetr_<model_size>_coco_eval.sh ` file for the evaluation process on coco dataset. Please refer to [3. Preparation](#3) to download a series of LW-DETR models.
 
 <details>
@@ -247,9 +263,9 @@ You can directly run `scripts/lwdetr_<model_size>_coco_eval.sh ` file for the ev
 
 </details>
 
-<a name='6'></a>
+<a name='7'></a>
 
-## 6. Deploy
+## 7. Deploy
 ### Export models
 You can run `scripts/lwdetr_<model_size>_coco_export.sh ` file to export models for development. Before execution, please ensure that TensorRT and cuDNN environment variables are correctly set.
 
@@ -323,9 +339,9 @@ python deploy/benchmark.py --path=/path/to/your/onnxmodel --coco_path=/path/to/y
 python deploy/benchmark.py --path=/path/to/your/trtengine --coco_path=/path/to/your/COCODIR --run_benchmark 
 ```
 
-<a name='7'></a>
+<a name='8'></a>
 
-## 7. Main Results
+## 8. Main Results
 
 The main results on coco dataset. We report the mAP as reported in the original paper, as well as the mAP obtained from re-implementation.
 
@@ -338,9 +354,9 @@ The main results on coco dataset. We report the mAP as reported in the original 
 | **`LW-DETR-xlarge`** | &#10004; | 118.0| 174.2| 19.1| **19.1**| **58.3**(58.3) | [Link](https://huggingface.co/xbsu/LW-DETR/resolve/main/pretrain_weights/LWDETR_xlarge_60e_coco.pth?download=true) |
 
 
-<a name='8'></a>
+<a name='9'></a>
 
-## 8. References
+## 9. References
 Our project is conducted based on the following public paper with code:
 
 - [Group DETR](https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_Group_DETR_Fast_DETR_Training_with_Group-Wise_One-to-Many_Assignment_ICCV_2023_paper.pdf)
@@ -353,9 +369,9 @@ Our project is conducted based on the following public paper with code:
 - [CAE](https://github.com/Atten4Vis/CAE)
 
 
-<a name='9'></a>
+<a name='10'></a>
 
-## 9. Citation
+## 10. Citation
 
 If you find this code useful in your research, please kindly consider citing our paper:
 
