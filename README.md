@@ -158,6 +158,7 @@ For visualizing demos:
 1. Pick a model and its config from projects, for example, LWDETR_small_60e_coco.
 2. Download the pretrained weights from the link on the page above.
 3. Using the provided demo.py to demo the input images. Run it as:
+
 ```sh
   sh demo/lwdetr_small_coco_infer.sh output/LWDETR_small_60e_coco.pth demo/000000496954.jpg output
   ```
